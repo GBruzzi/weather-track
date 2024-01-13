@@ -23,6 +23,12 @@ export default function Another() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${apiKey}`;
 
     let response = await fetch(url);
+
+    if (!response.ok) {
+      alert("Cidade não encontrada. Insira uma cidade válida.");
+      return;
+    }
+
     let data = await response.json();
 
     const temperatureValue = Math.floor(data.main.temp);
