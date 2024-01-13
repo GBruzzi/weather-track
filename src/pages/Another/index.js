@@ -17,7 +17,7 @@ export default function Another() {
 
     if (element[0].value === "") {
       alert("Insira uma cidade válida !!");
-      return 0;
+      return;
     }
 
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${apiKey}`;
@@ -34,6 +34,8 @@ export default function Another() {
     setWind(windValue);
     setCity(cityValue);
     setUmidity(umidityValue);
+
+    handleToggleGeo();
 
     return temperatureValue, windValue, cityValue, umidityValue;
   };
@@ -64,7 +66,7 @@ export default function Another() {
             title="Calcular clima"
             onClick={() => {
               search();
-              handleToggleGeo();
+              
             }}
           ></Btn>
         </>
